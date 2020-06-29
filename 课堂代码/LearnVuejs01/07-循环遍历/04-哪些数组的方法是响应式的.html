@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <!-- 加了key可以让它内部性能更高 -->
+      <li v-for='item in letters'>{{item}}</li>
+    </ul>
+    <button @click='btnClick'>按钮</button>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        letters: ['a', 'b', 'c', 'd']
+      },
+      methods: {
+
+        btnClick() {
+          //1.puxh方法
+          //this.letters.push('aaa')//.push('aaa','bbb','ccc')可以跟多个参数
+          //并不是所有改变数据的方法都是响应式的，比如下面
+
+          //2.通过索引值修改数组中的元素，不是响应式的
+          // this.letters[0]='bbbbb'//点击按钮页面内容不发生改变，但是数组第一个元素变了
+
+          //  pop()
+         // this.letters.pop();//把数组元素从最后一个删除掉
+          //  shift()//删除数组中的第一个元素
+          //  unshift()//在数组最前面添加元素，可以加多个参数
+          //  splice()作用：删除元素/插入元素/替换元素
+          //删除元素功能：第二个参数传入你要删除几个元素，没写就删除后面所有元素
+        //  this.letters.splice() //三个参数，从哪开始，要替换的个数，替换的参数
+
+          //替换功能:第二个参数，表示我们要替换几个元素，后面是用于替换前面的元素
+          this.letters.splice(1,3,"m","n","l")
+
+          //插入功能：第二个参数，传入0，并且后面跟上要插入的元素
+          this.letters.splice(1,0,'x','y','z')
+
+          //  sort()
+          //  reserve()
+          //set(要修改的对象，索引值，修改后的值)
+          Vue.set(this.letters,0,'bbbbb')//Vue内部实现的函数，他也可以帮你实时的改
+          //  这些方法也能做到响应式的
+
+          /*    function sum(...num)//可变参数
+             {
+               console.log(num);
+             }
+             sum(20, 30, 33, 44, 44) */
+        }
+      },
+    })
+  </script>
+</body>
+
+</html>

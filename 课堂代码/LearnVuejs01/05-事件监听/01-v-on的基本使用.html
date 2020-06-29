@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+       <h2> {{counter}}</h2> 
+<!--        <button v-on:click="counter++">+</button>
+       <button v-on:click="counter--">-</button> -->
+       <!-- 用函數的方法 -->
+       <button v-on:click="add">+</button>  <!-- 不传参数时，add的（）可写可不写 -->
+       <button v-on:click="decrement">-</button>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+          el:"#app",
+          data:{
+            counter:"0"
+          },
+          methods: {
+              //對象的增強寫法
+              add(){
+               this.counter++
+              },
+              decrement(){
+                   this.counter--
+              }
+          },
+
+        })
+    </script>
+</body>
+</html>

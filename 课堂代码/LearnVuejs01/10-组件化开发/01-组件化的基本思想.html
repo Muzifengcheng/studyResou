@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 抽离出来，组件化 -->
+    <!-- <cpn>
+        <h2>我是标题</h2>
+        <p>我是内容，哈哈哈哈哈</p>
+        <p>我是内容，呵呵呵呵呵呵</p>
+    </cpn> -->
+
+
+    <div id="app">
+        <!--        <h2>我是标题</h2>
+        <p>我是内容，哈哈哈哈哈</p>
+        <p>我是内容，呵呵呵呵呵呵</p>
+
+        <h2>我是标题</h2>
+        <p>我是内容，哈哈哈哈哈</p>
+        <p>我是内容，呵呵呵呵呵呵</p>
+
+        <h2>我是标题</h2>
+        <p>我是内容，哈哈哈哈哈</p>
+        <p>我是内容，呵呵呵呵呵呵</p> -->
+
+        <!-- 3.使用组件 -->
+        <my-cpn></my-cpn>
+        <my-cpn></my-cpn>
+        <my-cpn></my-cpn>
+      <div>
+        <my-cpn></my-cpn>
+      </div> 
+
+        <!-- <cpn></cpn>
+        <cpn></cpn>
+        <cpn></cpn> -->
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        //ES6
+        // `abc`也可以定义字符串，可以换行的
+        /*       const s=`avb
+              cds` */
+        // 1.创建组件构造器对象
+        const cpnC = Vue.extend({
+            template:`
+                <div>
+                    <h2>我是标题</h2>
+                    <p>我是内容，哈哈哈哈哈</p>
+                    <p>我是内容，呵呵呵呵呵呵</p>
+                </div>`
+        })
+        //2.注册组件//如果你的组件不能正确显示，需要添加：new Vue({el:'my-cpn'})
+        Vue.component('my-cpn', cpnC)
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "你好呀"
+            }
+        })
+    </script>
+</body>
+
+</html>

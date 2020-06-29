@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<button>按钮1</button>
+<button>按钮2</button>
+<button>按钮3</button>
+<button>按钮4</button>
+<button>按钮5</button>
+
+<script>
+  //1,变量作用域：变量在什么范围内可用。
+  //ES5之前的因为if和for都没有块级作用域的概念，所以在很多时候，我们必须借助function的作用域，来解决
+  //  应用外面变量的问题
+  //ES6,中，加入了let,let它是有if和for的块级作用域,
+  // {
+  //   var name='why'
+  //   console.log(name)//可以打印出来
+  //
+  // }
+  //console.log(name);//也可以打印出来，var没有块级作用域的概念
+
+  //2.没有块级作用域引起的问题
+  // var func;
+  // if(true)
+  // {
+  //   var name='why'
+  //
+  //   func=function () {
+  //     console.log(name)
+  //
+  //   }
+  // }
+  // name='kobe'   //变量很容易污染，被改掉
+  // func()
+  //3.没有块级作用域引起的问题：for的块级
+
+  //为什么闭包可以解决问题:因为他有函数作用域，外面的i无法影响里面的i
+  // ES5写法：
+  /*  var btns=document.getElementsByTagName('button')
+    for(var i=0;i<btns.length;i++)
+    {
+      (function (num) {//0
+        btns[i].addEventListener('click',function () {
+          console.log('第' + num + '个按钮被点击了');//5（一直调用的是变动的i),用闭包解决
+
+        })
+      })(i)
+
+    }*/
+  // ES6写法:
+  //   这里var也行
+  const btns=document.getElementsByTagName('button')
+  for(let i=0;i<btns.length;i++)
+  {
+    btns[i].addEventListener('click',function () {
+      console.log('第' + i + '个按钮被点击了');//点击第一个按钮是“0”
+    })
+  }
+  //每个i都有自己的作用域，彼此的i影响不了
+  /*  {i=0
+      btns[i].addEventListener('click',function () {
+        console.log('第' + i + '个按钮被点击了');//点击第一个按钮是“0”
+      })
+    }
+    {i=1
+      btns[i].addEventListener('click',function () {
+        console.log('第' + i + '个按钮被点击了');//点击第一个按钮是“0”
+      })
+    }
+    {i=2
+      btns[i].addEventListener('click',function () {
+        console.log('第' + i + '个按钮被点击了');//点击第一个按钮是“0”
+      })
+    }*/
+</script>
+</body>
+</html>

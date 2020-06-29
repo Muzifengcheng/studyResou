@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    ul li{
+      list-style-type: none;
+    }
+    .active {
+      color: #ff0000;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <ul>
+    <!--作业需求：默认第一项为红色，0点击列表中的哪一项，那么该项的文字变成红色-->
+    <!--<li v-for="变量（随便） in 列表"></li>-->
+    <!--<li v-for="m in movies">{{m}}</li>-->
+    <!--此时我动态绑定了一个class（叫active）-->
+    <li v-bind:class="{active:currentIndex === index}"
+        v-for="(m,index) in movies" @click="liclick(index)" >    <!--  方法一：@click="liclick(index)"    @click="currentIndex=index"-->
+      {{index}}， {{m}}
+    </li>
+    <!--
+        理解：
+        <li :class="{active: 0 === currentIndex}"></li>
+        <li :class="{active: 1 === currentIndex}"></li>
+        <li :class="{active: 2 === currentIndex}"></li>
+        <li :class="{active: 3 === currentIndex}"></li>
+    -->
+
+
+  </ul>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      // 到底谁显示红色的
+      currentIndex: 0,
+      movies: ['海王', '海尔兄弟', '火影忍者', '进击的巨人']
+
+
+    },
+
+    methods: {
+      liclick: function (index) {
+        this.currentIndex = index
+      }
+    }
+    /*      methods:{
+    这种函数写法也是对的     liclick(index){
+             this.currentIndex=index
+            }
+          }*/
+// 方法二：直接写 @click="currentIndex=index"
+  })
+</script>
+</body>
+</html>

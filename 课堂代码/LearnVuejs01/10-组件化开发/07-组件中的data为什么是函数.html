@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!-- 这是三个组件实例，每个组件都有自己data，公用template属性，但不共用函数体，因函数内部封闭的，各调各的，互不影响 -->
+  <cpn></cpn>
+  <cpn></cpn>
+  <cpn></cpn>
+
+</div>
+<template id="cpn">
+<!-- 这里封装一个组件 -->
+<div>
+  <h2>当前计数：{{counter}}</h2>
+  <button @click="increment">+</button>
+  <button @click="decrement">-</button>
+</div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+  //1,注册组件
+  Vue.component('cpn',{
+    template:'#cpn',
+    data(){
+      return {
+        counter:0
+      }
+    },
+    methods: {
+      increment(){
+        this.counter++
+      },
+      decrement(){
+        this.counter--
+      }
+    },
+  })
+    const app = new Vue({
+      el:"#app",
+      data:{
+        message:"你好呀"
+      }
+    })
+</script>
+</body>
+</html>

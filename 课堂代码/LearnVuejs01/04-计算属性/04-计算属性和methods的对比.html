@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--计算属性要比函数的性能好，有缓存，不需要每次都调用-->
+<div id="app">
+  <h2>{{firstName}} {{lastName}}</h2>
+  <h3>{{getFullName()}}</h3>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+      el:"#app",
+      data:{
+        firstName:'Kobe',
+        lastName: 'Bryant'
+      },
+      methods:{
+        getFullName() {
+          return this.firstName+ ' '+ this.lastName;
+        }
+      }
+    })
+</script>
+</body>
+</html>

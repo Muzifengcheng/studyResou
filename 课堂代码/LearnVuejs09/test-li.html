@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <li>一</li>
+    <li>二</li>
+    <li>三</li>
+    <li>四</li>
+    <li>五</li>
+    <script>
+/*      var aa=document.getElementsByTagName("li") 
+for(let i=0;i<aa.length;i++){
+    aa[i].onclick=function(n){
+        return function(){
+            console.log(n+1+aa[i].innerHTML)
+        }
+    }(i)
+} */
+//方法二
+var itemli=document.getElementsByTagName("li")
+for (var i=0;i<itemli.length;i++){
+    itemli[i].index=i//给每一个li定义一个属性索引值
+    itemli[i].onclick=function(){
+        alert(this.index+1+this.innerHTML)
+    }
+}
+
+
+
+ 
+      </script>
+</body>
+
+</html>

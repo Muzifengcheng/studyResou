@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+   <script>
+
+       //新增了ES2020新增了Promise.allSettled弥补了Promise.all的缺陷，可以百度下
+       Promise.all([
+           new Promise((resolve,reject)=>{
+               $ajax({
+                   url:'url1',
+                   success:function(data){
+                       resolve(data)
+                   }
+               })
+           }),
+           //发送第二次网络请求
+           new Promise((resolve,reject)=>{
+               $ajax({
+                   url:'url2',
+                   success:function(data){
+                       resolve(data)
+                   }
+               })
+           })//内部会判断这两个网络请求是不是都完成了
+       ]).then(results=>{
+           results[0],
+           results[1]
+       })
+   </script> 
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h2>{{message}}</h2>
+  <h2 v-text="message">kdhh</h2><!--尽量用上面的-->
+  <h2 v-pre>{{message}}</h2>  <!--原封不动显示出来-->
+
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "你好呀",
+      url: '<a href= "http://www.baidu.com""> 百度一下</a>'//以html的形式展示出来
+    }
+  })
+</script>
+</body>
+</html>

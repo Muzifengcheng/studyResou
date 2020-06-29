@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+ <h2>{{fullName}}</h2>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+      el:"#app",
+      data:{
+       firstName:'Kobe',
+        lastName: 'Bryant'
+      },
+      computed:{
+ /*       fullName:function () {
+          return this.firstName+''+this.lastname;
+
+        }*/
+ //完整的计算属性是这样写的，这个属性对应是个对象，对象里面有个set方法和get方法
+        fullName:{
+          set:function () {
+
+          },
+          //一般我们只用到get方法，只读属性，简写了成了最上面的函数方法了
+          get:function () {
+             return  this.firstName+' '+this.lastName
+          }
+        }
+      }
+
+    })
+</script>
+</body>
+</html>

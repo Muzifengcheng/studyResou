@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload =function(){
+//		  	写在这里的代码，在页面加载完成后执行
+		  	var oBtn=document.getElementById("btn");  
+       	     //alert(oBtn);
+       	     oBtn.onclick=function(){
+               console.log('开始')
+               const removeDuplicateItems = arr => [...new Set(arr)];
+                console.log(removeDuplicateItems([42, 'foo', 42, 'foo',{},{}, true, true]));
+       	     }
+    
+       	    
+
+       	     }
+
+/*         window.onload=function()
+    {
+        var obtn=document.getElementsById("btn")
+       
+       obtn.onclick=function(){
+        alert("单击")
+           console.log('------')
+           let removearr=arr =>[...new Set(arr)]
+         console.log(removearr[42,42,'foo','foo'])
+       }
+    } */
+       
+    
+    
+       </script>
+
+</head>
+<body>
+<input type="button" value="按钮1" id="btn">
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+webpack是一个现代的JavaScript应用的静态“模块打包”工具
+
+打包工具：grunt/gulp/webpack/rollup
+
+前端模块化：1、前面的学习解释了为什么前端模块化；  2、目前使用前端模块化的一些方案：AMD、CMD，CommonJS,ES6规范
+
+什么时候用grunt/gulp呢？ 更强调自动化，更强调一些任务
+  如果你的工程模块依赖非常简单，甚至没有用到模块化的概念。
+   只需要进行简单的合并、压缩、就使用grunt/gulp即可。
+   但是如果整个项目使用了模块化管理，而且相互依赖非常强，我们就可以使用更强大的webpack了。
+
+所以，grunt/gulp和webpack有什么不同呢？
+    grunt/gulp更加前端流程的自动化，模块化不是他的核心。
+    webpack更加强调模块化开发管理，而文件压缩合并，预处理等功能，是它的附带功能。
+
+
+  webpack为了可以正常运行，必须依赖node环境，  node环境为了可以正常执行很多代码，  必须其中包含很多依赖的包
+   安装node会自动给你安装npm (node packages manager)工具(他只是为了帮助node环境下的各种包而已)
+    node支持单线程 高并发 关键性能还不错
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('hello Vuejs')
+                reject('error message')
+            }, 1000)
+        }).then(data =>{
+             console.log(data)
+        },err=>{
+          console.log(err)
+        })  //then().catch()写法一，另一种写法如左边，.then(成功函数，失败z执行函数)
+    </script>
+</body>
+
+</html>

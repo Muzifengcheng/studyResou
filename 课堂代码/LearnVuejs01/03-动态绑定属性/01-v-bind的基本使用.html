@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--图片不要写死，才考虑v-bind,<img src="" alt="">会写死，-->
+<div id="app">
+    {{message}}
+  <!--<img src="{{imgURL}}" alt="">  错误语法mustache语法只能在content内（标签内）-->
+  <img v-bind:src="imgURL"alt=""> <!-- 此时知道动态绑定了一个变量，或者-->
+  <br>
+  <img :src="imgURL" alt="">
+  <a :href="aHref">百度一下</a>
+
+  <div :class=""></div>
+
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+      el:"#app",
+      // 一般服务器传过来数据放在data中，再通过语法绑定在上面。
+      data:{
+        message:"你好呀",
+        imgURL:'https://img11.360buyimg.com/mobilecms/s280x280_jfs/t1/94879/5/14572/195758/5e68773e' +
+            'E719d8744/837ce40f09fd74e1.jpg.webp',
+        aHref:'http://www.baidu.com'
+
+      }
+    })
+</script>
+</body>
+</html>

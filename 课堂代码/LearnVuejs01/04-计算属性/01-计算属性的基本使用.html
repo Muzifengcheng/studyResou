@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{firstName}} {{lastName}}</h2>
+  <h2>{{firstName + ' '+ lastName}}</h2>
+  <h2>{{getFullName()}}</h2>
+  <h2>{{getFullName()}}</h2>
+  <h2>{{getFullName()}}</h2>
+  <h2>{{getFullName()}}</h2>
+    <!--使用计算属性不需要加（）-->
+  <h2 :style="{backgroundColor:'red'}">{{fullName}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+      el:"#app",
+      data:{
+       firstName:"Lebron",
+        lastName:"James"
+      },
+      //计算属性（）
+      computed:{
+        // 这里也是写函数的地方,本质就是属性，和下面有差异
+        fullName:function () {
+          return this.firstName + ' ' + this.lastname
+        }
+
+      },
+      methods:{
+        getFullName(){
+          return this.firstName + ' ' + this.lastName
+        }
+
+      }
+    })
+</script>
+</body>
+</html>

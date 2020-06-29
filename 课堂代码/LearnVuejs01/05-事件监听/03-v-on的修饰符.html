@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- .stop修饰符的使用(阻止冒泡) -->
+        <div @click="divClick">
+            aaaaa
+            <button @click.stop="btnClick">按钮</button> <!--  点击按钮之后divClick也会执行，这叫事件冒泡,加上.stop就可以了 -->
+        </div>
+        <!-- 2.   . prevent修饰符的使用（阻止默认事件） -->
+        <br>
+        <form action="baidu">
+            <input type="submit" value="提交" @click.prevent='submitClick'>  <!-- 希望自己掌握打印文字,收集数据，往服务器发请求了
+                却不希望提交，加.prevent，阻止默认自动提交数据 -->
+        </form>
+            <!-- 3.  监听某个键盘的键帽 -->
+            <input type="text" @keyup.enter="keyUp"><!-- 此时会监听所有按键，加.enter则监听回车键 -->
+            <!-- 4..once修饰符的使用 -->
+            <button @click.once="btn2Click">按钮2</button><!-- 按钮只允许点一次 -->
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "你好呀"
+            },
+            methods: {
+                btnClick(){
+                    console.log('btnClick')
+                },
+                divClick(){
+                    console.log('divClick')
+                },
+                submitClick(){
+                    console.log('submitClick')
+                },
+                keyUp(){
+                    console.log('keyUp')
+                },
+                btn2Click(){
+                    console.log('btn2Click')
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
